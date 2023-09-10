@@ -1,5 +1,6 @@
 import streamlit as st
 from audiocraft.models import MusicGen
+
 input_list = []
 
 @st.cache_resource
