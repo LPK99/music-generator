@@ -5,8 +5,9 @@ input_list = []
 
 @st.cache_resource
 def load_model(duration):
+    duration_ = int(duration)
     model = MusicGen.get_pretrained("melody")
-    model.set_generation_params(duration=duration)
+    model.set_generation_params(duration=duration_)
     return model
 
 
@@ -19,7 +20,7 @@ def main():
     st.title('Music Generator')
     prompt_input = st.text_input('Enter your music description')
     input_list.append(prompt_input)
-    duration = int(st.text_input('Enter the duration of the audio'))
+    duration = st.text_input('Enter the duration of the audio')
     if st.button('Create your audio'):
         model = load_model(duration=duration)
         generate(model=model, inputs=input_list)
