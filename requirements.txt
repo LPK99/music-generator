@@ -1,4 +1,4 @@
 accelerate==0.21.0
-transformet==4.31.0
+transformers==4.31.0
 audiocraft @ git+https://github.com/facebookresearch/audiocraft.git@a2b96756956846e194c9255d0cdadc2b47c93f1b
 streamlit==1.25.0
