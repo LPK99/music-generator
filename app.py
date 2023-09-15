@@ -24,6 +24,7 @@ def main():
     if st.button('Create your audio'):
         model = load_model(duration=duration)
         generate(model=model, inputs=input_list)
+    st.write("[Checkout github repo](https://github.com/LPK99/music-generator)")
     
 if __name__ == '__main__':
     main()
