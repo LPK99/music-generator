@@ -22,7 +22,7 @@ def main():
         page_icon="musical-note.png",
     )
     st.title('Music Generator')
-    st.image('musical-note.png')
+    st.image(image='musical-note.png', width=100)
     prompt_input = st.text_input('Enter your music description')
     input_list.append(prompt_input)
     duration = st.text_input('Enter the duration of the audio')
