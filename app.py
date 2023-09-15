@@ -17,7 +17,12 @@ def generate(model, inputs):
     st.audio(audio_values[0].cpu().numpy(), sample_rate=sampling_rate)
 
 def main():
+    st.set_page_config(
+        page_title="Music Generator",
+        page_icon="musical-note.png",
+    )
     st.title('Music Generator')
+    st.image('musical-note.png')
     prompt_input = st.text_input('Enter your music description')
     input_list.append(prompt_input)
     duration = st.text_input('Enter the duration of the audio')
