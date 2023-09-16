@@ -3,7 +3,7 @@ from audiocraft.models import MusicGen
 
 input_list = []
 
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def load_model(duration):
     duration_ = int(duration)
     model = MusicGen.get_pretrained("melody")
@@ -27,9 +27,10 @@ def main():
     input_list.append(prompt_input)
     duration = st.text_input('Enter the duration of the audio')
     if st.button('Create your audio'):
-        model = load_model(duration=duration)
-        generate(model=model, inputs=input_list)
-    st.write("[Checkout github repo](https://github.com/LPK99/music-generator)")
+        with st.spinner("Your audio is being generated"):
+            model = load_model(duration=duration)
+            generate(model=model, inputs=input_list)
+    st.write("[Check out github repo](https://github.com/LPK99/music-generator)")
     
 if __name__ == '__main__':
     main()
