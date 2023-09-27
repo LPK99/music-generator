@@ -5,6 +5,31 @@ import gc
 
 input_list = []
 
+from pedalboard.io import AudioFile
+from pedalboard import *
+import noisereduce as nr
+
+def improve(audio):
+  
+
+  sr = 44100
+
+
+  reduced_noise = nr.reduce_noise(y=audio, sr=sr, stationary=True, prop_decrease=0.75)
+
+  board = Pedalboard([
+    NoiseGate(threshold_db=-30, ratio=1.5, release_ms=250),
+    Compressor(threshold_db=-16, ratio=2.5),
+    LowShelfFilter(cutoff_frequency_hz=400, gain_db=10, q=1),
+    Gain(gain_db=10)
+  ])
+
+  effected = board(reduced_noise, sr)
+  
+  return effected
+
+
+
 
 def clear_cuda_memory():
     torch.cuda.empty_cache()
@@ -21,9 +46,10 @@ def load_model(duration):
 
 
 def generate(model, inputs):
-    audio_values = model.generate(inputs)
+    audio_values = improve(model.generate(inputs)[0].cpu().numpy())
+    print(audio_values)
     sampling_rate = model.sample_rate
-    st.audio(audio_values[0].cpu().numpy(), sample_rate=sampling_rate)
+    st.audio(audio_values, sample_rate=sampling_rate)
 
 def main():
     st.set_page_config(
