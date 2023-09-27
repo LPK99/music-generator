@@ -1,5 +1,5 @@
 # music-generator
-Text to Music generator using meta audiocraft [Link to audiocraft repo](https://github.com/facebookresearch/audiocraft)
+Text to Music generator using Meta audiocraft [Link to audiocraft repo](https://github.com/facebookresearch/audiocraft)
 
 Testing the app online using huggingface Spaces : [link](https://huggingface.co/spaces/Micklew/music-generator)
 
