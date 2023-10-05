@@ -3,7 +3,7 @@ Text to Music generator using Meta audiocraft and pedalboard/noisereduce librari
 
 [Link to audiocraft repo](https://github.com/facebookresearch/audiocraft)
 
-[Link to noisereduce repo]([https://github.com/facebookresearch/audiocraft](https://github.com/timsainb/noisereduce)
+[Link to noisereduce repo](https://github.com/timsainb/noisereduce)
 
 Testing the app online using huggingface Spaces : [link](https://huggingface.co/spaces/Micklew/music-generator)
 
